@@ -22,13 +22,24 @@ signInForm.addEventListener("submit", (e) => {
   // Check if credentials match admin/admin
   if (email === "admin" && password === "admin") {
     // Show success animation
-    showSuccessMessage();
+    showSuccessMessage("Admin Login Successful!");
     
-    // Redirect to dashboard after short delay
+    // Redirect to admin dashboard after short delay
     setTimeout(() => {
       window.location.href = "AdminDashboard.html";
     }, 1500);
-  } else {
+  } 
+  // Check if credentials match user/user
+  else if (email === "user" && password === "user") {
+    // Show success animation
+    showSuccessMessage("User Login Successful!");
+    
+    // Redirect to user portal after short delay
+    setTimeout(() => {
+      window.location.href = "UserPortal.html";
+    }, 1500);
+  }
+  else {
     // Show error message
     showErrorMessage();
   }
@@ -43,12 +54,12 @@ signUpForm.addEventListener("submit", (e) => {
 });
 
 // Success Message
-function showSuccessMessage() {
+function showSuccessMessage(text = "Login successful! Redirecting...") {
   const message = document.createElement("div");
   message.className = "toast-message success";
   message.innerHTML = `
     <i class="fas fa-check-circle"></i>
-    <span>Login successful! Redirecting...</span>
+    <span>${text}</span>
   `;
   document.body.appendChild(message);
   
@@ -68,7 +79,7 @@ function showErrorMessage() {
   message.className = "toast-message error";
   message.innerHTML = `
     <i class="fas fa-exclamation-circle"></i>
-    <span>Invalid credentials! Use admin/admin</span>
+    <span>Invalid credentials! Try admin/admin or user/user</span>
   `;
   document.body.appendChild(message);
   

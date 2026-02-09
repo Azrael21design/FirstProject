@@ -5,7 +5,7 @@ function logout() {
   if (confirm('Are you sure you want to logout?')) {
     showToast('info', 'Logging out...');
     setTimeout(() => {
-      window.location.href = 'Login.html';
+      window.location.href = 'index.html';
     }, 1000);
   }
 }
